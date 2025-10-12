@@ -1,0 +1,379 @@
+@import "tailwindcss";
+
+/* Define custom theme utilities */
+@theme {
+  /* We can define custom color tokens here if needed */
+  --color-primary-*: initial;
+}
+:root {
+  /* Lime theme (default) */
+  --primary-50: 247 254 231;
+  --primary-100: 236 252 203;
+  --primary-200: 217 249 157;
+  --primary-300: 190 242 100;
+  --primary-400: 163 230 53;
+  --primary-500: 132 204 22;
+  --primary-600: 101 163 13;
+  --primary-700: 77 124 15;
+  --primary-800: 63 98 18;
+  --primary-900: 54 83 20;
+
+  /* Semantic colors */
+  --background: 255 255 255;
+  --foreground: 15 23 42;
+  --card: 255 255 255;
+  --card-foreground: 15 23 42;
+  --popover: 255 255 255;
+  --popover-foreground: 15 23 42;
+  --primary: var(--primary-600);
+  --primary-foreground: 255 255 255;
+  --secondary: 241 245 249;
+  --secondary-foreground: 15 23 42;
+  --muted: 241 245 249;
+  --muted-foreground: 100 116 139;
+  --accent: 241 245 249;
+  --accent-foreground: 15 23 42;
+  --destructive: 220 38 38;
+  --destructive-foreground: 255 255 255;
+  --border: 226 232 240;
+  --input: 226 232 240;
+  --ring: var(--primary-600);
+}
+
+.dark {
+  --background: 2 6 23;
+  --foreground: 248 250 252;
+  --card: 2 6 23;
+  --card-foreground: 248 250 252;
+  --popover: 2 6 23;
+  --popover-foreground: 248 250 252;
+  --primary: var(--primary-500);
+  --primary-foreground: 255 255 255;
+  --secondary: 30 41 59;
+  --secondary-foreground: 248 250 252;
+  --muted: 30 41 59;
+  --muted-foreground: 148 163 184;
+  --accent: 30 41 59;
+  --accent-foreground: 248 250 252;
+  --destructive: 220 38 38;
+  --destructive-foreground: 255 255 255;
+  --border: 30 41 59;
+  --input: 30 41 59;
+  --ring: var(--primary-500);
+}
+
+/* Ensure dark mode works for all themes */
+.dark[data-theme="lime"] {
+  --primary: var(--primary-500);
+  --ring: var(--primary-500);
+}
+
+.dark[data-theme="blue"] {
+  --primary: var(--primary-500);
+  --ring: var(--primary-500);
+}
+
+/* Green theme */
+[data-theme="green"] {
+  --primary-50: 240 253 244;
+  --primary-100: 220 252 231;
+  --primary-200: 187 247 208;
+  --primary-300: 134 239 172;
+  --primary-400: 74 222 128;
+  --primary-500: 34 197 94;
+  --primary-600: 22 163 74;
+  --primary-700: 21 128 61;
+  --primary-800: 22 101 52;
+  --primary-900: 20 83 45;
+  --primary: var(--primary-600);
+  --ring: var(--primary-600);
+}
+
+[data-theme="green"].dark {
+  --primary: var(--primary-500);
+  --ring: var(--primary-500);
+}
+
+/* Purple theme */
+[data-theme="purple"] {
+  --primary-50: 250 245 255;
+  --primary-100: 243 232 255;
+  --primary-200: 233 213 255;
+  --primary-300: 216 180 254;
+  --primary-400: 192 132 252;
+  --primary-500: 168 85 247;
+  --primary-600: 147 51 234;
+  --primary-700: 124 58 237;
+  --primary-800: 107 33 168;
+  --primary-900: 88 28 135;
+  --primary: var(--primary-600);
+  --ring: var(--primary-600);
+}
+
+[data-theme="purple"].dark {
+  --primary: var(--primary-500);
+  --ring: var(--primary-500);
+}
+
+/* Red theme */
+[data-theme="red"] {
+  --primary-50: 254 242 242;
+  --primary-100: 254 226 226;
+  --primary-200: 254 202 202;
+  --primary-300: 252 165 165;
+  --primary-400: 248 113 113;
+  --primary-500: 239 68 68;
+  --primary-600: 220 38 38;
+  --primary-700: 185 28 28;
+  --primary-800: 153 27 27;
+  --primary-900: 127 29 29;
+  --primary: var(--primary-600);
+  --ring: var(--primary-600);
+}
+
+[data-theme="red"].dark {
+  --primary: var(--primary-500);
+  --ring: var(--primary-500);
+}
+
+/* Lime theme */
+[data-theme="lime"] {
+  --primary-50: 247 254 231;
+  --primary-100: 236 252 203;
+  --primary-200: 217 249 157;
+  --primary-300: 190 242 100;
+  --primary-400: 163 230 53;
+  --primary-500: 132 204 22;
+  --primary-600: 101 163 13;
+  --primary-700: 77 124 15;
+  --primary-800: 63 98 18;
+  --primary-900: 54 83 20;
+  --primary: var(--primary-600);
+  --ring: var(--primary-600);
+}
+
+[data-theme="lime"].dark {
+  --primary: var(--primary-500);
+  --ring: var(--primary-500);
+}
+
+/* Blue theme */
+[data-theme="blue"] {
+  --primary-50: 239 246 255;
+  --primary-100: 219 234 254;
+  --primary-200: 191 219 254;
+  --primary-300: 147 197 253;
+  --primary-400: 96 165 250;
+  --primary-500: 59 130 246;
+  --primary-600: 37 99 235;
+  --primary-700: 29 78 216;
+  --primary-800: 30 64 175;
+  --primary-900: 30 58 138;
+  --primary: var(--primary-600);
+  --ring: var(--primary-600);
+}
+
+[data-theme="blue"].dark {
+  --primary: var(--primary-500);
+  --ring: var(--primary-500);
+}
+
+/* Rose theme */
+[data-theme="rose"] {
+  --primary-50: 255 241 242;
+  --primary-100: 255 228 230;
+  --primary-200: 254 205 211;
+  --primary-300: 253 164 175;
+  --primary-400: 251 113 133;
+  --primary-500: 244 63 94;
+  --primary-600: 225 29 72;
+  --primary-700: 190 18 60;
+  --primary-800: 159 18 57;
+  --primary-900: 136 19 55;
+  --primary: var(--primary-600);
+  --ring: var(--primary-600);
+}
+
+[data-theme="rose"].dark {
+  --primary: var(--primary-500);
+  --ring: var(--primary-500);
+}
+
+/* Chocolate theme */
+[data-theme="chocolate"] {
+  --primary-50: 237 196 179;
+  --primary-100: 230 184 162;
+  --primary-200: 222 171 144;
+  --primary-300: 214 159 126;
+  --primary-400: 205 151 119;
+  --primary-500: 195 142 112;
+  --primary-600: 176 125 98;
+  --primary-700: 157 107 83;
+  --primary-800: 138 90 68;
+  --primary-900: 119 73 54;
+  --primary: var(--primary-600);
+  --ring: var(--primary-600);
+}
+
+[data-theme="chocolate"].dark {
+  --primary: var(--primary-500);
+  --ring: var(--primary-500);
+}
+
+/* Ocean theme */
+[data-theme="ocean"] {
+  --primary-50: 0 64 108;
+  --primary-100: 0 58 97;
+  --primary-200: 0 51 86;
+  --primary-300: 0 46 78;
+  --primary-400: 0 41 69;
+  --primary-500: 0 37 62;
+  --primary-600: 0 33 55;
+  --primary-700: 0 26 44;
+  --primary-800: 0 21 35;
+  --primary-900: 0 17 28;
+  --primary: var(--primary-600);
+  --ring: var(--primary-600);
+}
+
+[data-theme="ocean"].dark {
+  --primary: var(--primary-500);
+  --ring: var(--primary-500);
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
+  background-color: rgb(var(--background) / 1);
+  color: rgb(var(--foreground) / 1);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom utility classes */
+.bg-primary {
+  background-color: hsl(var(--primary));
+}
+
+.text-primary {
+  color: hsl(var(--primary));
+}
+
+.border-primary {
+  border-color: hsl(var(--primary));
+}
+
+.ring-primary {
+  --tw-ring-color: hsl(var(--primary));
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Apply theme colors to specific elements */
+.bg-primary {
+  background-color: rgb(var(--primary) / 1) !important;
+}
+
+.text-primary {
+  color: rgb(var(--primary) / 1) !important;
+}
+
+.border-primary {
+  border-color: rgb(var(--primary) / 1) !important;
+}
+
+.ring-primary {
+  --tw-ring-color: rgb(var(--primary) / 1) !important;
+}
+
+.bg-primary\/10 {
+  background-color: rgb(var(--primary) / 0.1) !important;
+}
+
+.bg-primary\/5 {
+  background-color: rgb(var(--primary) / 0.05) !important;
+}
+
+.hover\:bg-primary\/90:hover {
+  background-color: rgb(var(--primary) / 0.9) !important;
+}
+
+.hover\:bg-primary\/5:hover {
+  background-color: rgb(var(--primary) / 0.05) !important;
+}
+
+.hover\:text-primary:hover {
+  color: rgb(var(--primary) / 1) !important;
+}
+
+/* Additional semantic color utilities */
+.bg-secondary {
+  background-color: rgb(var(--secondary) / 1) !important;
+}
+
+.text-secondary-foreground {
+  color: rgb(var(--secondary-foreground) / 1) !important;
+}
+
+.hover\:bg-secondary\/80:hover {
+  background-color: rgb(var(--secondary) / 0.8) !important;
+}
+
+.bg-destructive {
+  background-color: rgb(var(--destructive) / 1) !important;
+}
+
+.text-destructive-foreground {
+  color: rgb(var(--destructive-foreground) / 1) !important;
+}
+
+.hover\:bg-destructive\/90:hover {
+  background-color: rgb(var(--destructive) / 0.9) !important;
+}
+
+.bg-accent {
+  background-color: rgb(var(--accent) / 1) !important;
+}
+
+.text-accent-foreground {
+  color: rgb(var(--accent-foreground) / 1) !important;
+}
+
+.hover\:bg-accent:hover {
+  background-color: rgb(var(--accent) / 1) !important;
+}
+
+.hover\:text-accent-foreground:hover {
+  color: rgb(var(--accent-foreground) / 1) !important;
+}
+
+.text-primary-foreground {
+  color: rgb(var(--primary-foreground) / 1) !important;
+}
+
+.border-input {
+  border-color: rgb(var(--input) / 1) !important;
+}
+
+.ring-offset-background {
+  --tw-ring-offset-color: rgb(var(--background) / 1);
+}
+
+.focus-visible\:ring-ring:focus-visible {
+  --tw-ring-color: rgb(var(--ring) / 1);
+}
+
+/* Make theme-aware buttons */
+.btn-primary {
+  background-color: rgb(var(--primary) / 1);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: rgb(var(--primary) / 0.9);
+}
+
+button {
+  cursor: pointer;
+}
